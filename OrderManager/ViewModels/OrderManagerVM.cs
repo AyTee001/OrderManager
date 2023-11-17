@@ -117,7 +117,6 @@ namespace OrderManager.ViewModels
             Record = new RelayCommand(
                 executeAction  => {
                     _manager.MakeNewOrder(_clientName, (int)_sum!);
-                    OnPropertyChanged(nameof(Orders));
                 },
                 canExecuteFunc => true);
 
@@ -125,7 +124,6 @@ namespace OrderManager.ViewModels
                 executeAction =>
                 {
                     UpdateResult = _manager.TryChangeOrderStatus((int)_orderIdStatusChange!, _status) ? "Success" : "Order not found";
-                    OnPropertyChanged(nameof(Orders));
                 },
                 canExecuteFunc => true);
 
@@ -133,7 +131,6 @@ namespace OrderManager.ViewModels
                 executeAction =>
                 {
                     DeletionResult = _manager.TryRemoveOrder((int)_orderIdDeletion!) ? "Success" : "Order not found";
-                    OnPropertyChanged(nameof(Orders));
                 },
                 canExecuteFunc => true);
 

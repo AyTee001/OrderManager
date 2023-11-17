@@ -15,7 +15,7 @@ namespace OrderManager.Models
         public ObservableCollection<Order> Orders
         {
             get { return _orders; }
-            set
+            private set
             {
                 _orders = value;
                 OnPropertyChanged(nameof(Orders));
